@@ -1,0 +1,34 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <ul id="list">
+        <li>item</li>
+    </ul>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+
+        socket.on('message', function (data) {
+            messageRecieved(data);
+        })
+
+        function messageRecieved(message) {
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode(message);
+            node.appendChild(textnode);
+            document.getElementById('list').appendChild(node)
+        }
+
+        function sendMessage(message){
+            socket.emit('message',message);
+        }
+
+        socket.emit('room', 'lobby');
+    </script>
+</body>
+
+</html>
