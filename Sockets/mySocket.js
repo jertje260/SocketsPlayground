@@ -38,7 +38,7 @@ function socket(socket) {
     self.setup = function (io) {
         //socket setup
         self.io = io;
-        io.sockets.on('connection', self.connect);
+        io.on('connection', self.connect);
     }
 
 

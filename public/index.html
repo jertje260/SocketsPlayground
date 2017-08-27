@@ -8,9 +8,15 @@
         <li>item</li>
     </ul>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="../General/Direction.js"></script>
+    <script src="../General/Size.js"></script>
+    <script src="../General/Position.js"></script>
+    <script src="../General/Object.js"></script>
+    <script src="../General/Sprite.js"></script>
+ 
     <script>
         var socket = io();
-
+        
 
         socket.on('message', function (data) {
             messageRecieved(data);
